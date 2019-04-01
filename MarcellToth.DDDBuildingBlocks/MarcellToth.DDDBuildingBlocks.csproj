@@ -3,6 +3,12 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <LangVersion>latest</LangVersion>
+        <PackageVersion>1.1.2</PackageVersion>
+        <Title>DDD Building Blocks</Title>
+        <Description>Abstractions, base classes and utilities used in my DDD solutions.  </Description>
+        <RepositoryUrl>https://github.com/marcelltoth/DDDBuildingBlocks</RepositoryUrl>
+        <Authors>marcelltoth</Authors>
+        <PackageTags>DDD</PackageTags>
     </PropertyGroup>
 
 </Project>
