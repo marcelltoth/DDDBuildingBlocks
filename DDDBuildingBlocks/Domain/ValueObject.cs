@@ -42,7 +42,26 @@ namespace MarcellToth.DDDBuildingBlocks.Domain
                 return false;
 
             return GetPropertyValues().SequenceEqual(((ValueObject) other).GetPropertyValues());
+        }
 
+        public override int GetHashCode()
+        {
+            int hashCode = 31;
+            bool changeMultiplier = false;
+            foreach (object value in GetPropertyValues())
+            {
+                if (value != null)
+                {
+
+                    hashCode = hashCode * (changeMultiplier ? 59 : 114) + value.GetHashCode();
+
+                    changeMultiplier = !changeMultiplier;
+                }
+                else
+                    hashCode = hashCode ^ 13;//only for support {"a",null,null,"a"} <> {null,"a","a",null}
+            }
+
+            return hashCode;
         }
     }
 }
