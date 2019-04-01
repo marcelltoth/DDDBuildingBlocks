@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarcellToth.DDDBuildingBlocks", "MarcellToth.DDDBuildingBlocks\MarcellToth.DDDBuildingBlocks.csproj", "{9DAE3F07-9452-4D96-BD57-8C184A12D691}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDBuildingBlocks", "DDDBuildingBlocks\DDDBuildingBlocks.csproj", "{9DAE3F07-9452-4D96-BD57-8C184A12D691}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

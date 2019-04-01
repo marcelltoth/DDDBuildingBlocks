@@ -9,6 +9,7 @@
         <RepositoryUrl>https://github.com/marcelltoth/DDDBuildingBlocks</RepositoryUrl>
         <Authors>marcelltoth</Authors>
         <PackageTags>DDD</PackageTags>
+        <RootNamespace>MarcellToth.DDDBuildingBlocks</RootNamespace>
     </PropertyGroup>
 
 </Project>
