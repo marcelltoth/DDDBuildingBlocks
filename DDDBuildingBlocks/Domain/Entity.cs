@@ -44,7 +44,9 @@ namespace MarcellToth.DDDBuildingBlocks.Domain
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != GetType()) return false;
-            return Equals((IEntity<TId>) obj);
+            var other = (Entity<TId>) obj;
+            return !IsTransient && !other.IsTransient && Equals(other);
+            
         }
 
         /// <inheritdoc />
@@ -55,6 +57,9 @@ namespace MarcellToth.DDDBuildingBlocks.Domain
         /// </remarks>
         public override int GetHashCode()
         {
+            if (IsTransient) 
+                return base.GetHashCode();
+            
             return EqualityComparer<TId>.Default.GetHashCode(Id);
         }
 
