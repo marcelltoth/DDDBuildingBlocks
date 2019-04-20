@@ -10,6 +10,10 @@ namespace MarcellToth.DDDBuildingBlocks.Domain
             Id = id;
         }
 
+        public Entity()
+        {
+        }
+
         /// <summary>
         ///     The unique identity of this Entity.
         /// </summary>
