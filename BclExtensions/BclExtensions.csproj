@@ -2,8 +2,9 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <LangVersion>latest</LangVersion>
-        <PackageVersion>1.1.2</PackageVersion>
+        <PackageVersion>1.1.3</PackageVersion>
         <Title>Extensions to the .NET Standard Base Class Library</Title>
         <Description>This project implements many methods that I feel are missing from the .NET BCL. Of course the list of methods included is strongly opinionated, feel free to fork and build your own collection.</Description>
         <RepositoryUrl>https://github.com/marcelltoth/Foundation/tree/master/BclExtensions</RepositoryUrl>
