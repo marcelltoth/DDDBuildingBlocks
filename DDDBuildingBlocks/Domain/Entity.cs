@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using MarcellToth.DDDBuildingBlocks.Domain.Abstractions;
 
@@ -22,12 +23,32 @@ namespace MarcellToth.DDDBuildingBlocks.Domain
         ///     EF generated key sbefore saving the entity to the database.
         /// </remarks>
         /// <seealso cref="IsTransient"/>
-        public TId Id { get; set; }
+        public TId Id { get; private set; }
 
         /// <summary>
         ///     True if the entity does not have a stable identity yet.
         /// </summary>
         public virtual bool IsTransient => Equals(Id, default(TId));
+
+        /// <summary>
+        ///     Sets the unique identity of this Entity, if it was in the Transient state.
+        /// </summary>
+        /// <remarks>
+        ///     Calling this method on an entity that is not transient causes an <see cref="System.InvalidOperationException"/> to be thrown.
+        /// </remarks>
+        /// <param name="newId">The ID to be set on this entity.</param>
+        /// <exception cref="System.ArgumentException">Thrown if the value of <paramref name="newId"/> represents the transient state.</exception>
+        /// <exception cref="System.InvalidOperationException">Thrown when attempting to change the identity of a non-transient entity.</exception>
+        public void SetId(TId newId)
+        {
+            if(Equals(newId, default(TId)))
+                throw new ArgumentException("Cannot set an entity's identity to the transient state.", nameof(newId));
+            
+            if(!IsTransient)
+                throw new InvalidOperationException("Cannot change indentity of a non-transient entity");
+
+            Id = newId;
+        }
         
         /// <summary>
         ///     Returns true if <paramref name="other"/> is the same entity based on its <see cref="Id"/>.
