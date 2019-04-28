@@ -1,12 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDBuildingBlocks", "DDDBuildingBlocks\DDDBuildingBlocks.csproj", "{9DAE3F07-9452-4D96-BD57-8C184A12D691}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDBuildingBlocks", "src\DDDBuildingBlocks\DDDBuildingBlocks.csproj", "{9DAE3F07-9452-4D96-BD57-8C184A12D691}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BclExtensions", "BclExtensions\BclExtensions.csproj", "{C12F4BE9-717E-4C68-8C5E-36FF54DB6695}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BclExtensions", "src\BclExtensions\BclExtensions.csproj", "{C12F4BE9-717E-4C68-8C5E-36FF54DB6695}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E5FAF022-9116-40D5-B662-8BCE3642D0B1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDBuildingBlocks.UnitTests", "tests\DDDBuildingBlocks.UnitTests\DDDBuildingBlocks.UnitTests.csproj", "{8C0AFA2C-01B8-4D4A-B7A2-655089697670}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{688E9979-0FC4-4FCE-A38D-ABD4872ACA46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,5 +31,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8C0AFA2C-01B8-4D4A-B7A2-655089697670} = {E5FAF022-9116-40D5-B662-8BCE3642D0B1}
+		{C12F4BE9-717E-4C68-8C5E-36FF54DB6695} = {688E9979-0FC4-4FCE-A38D-ABD4872ACA46}
+		{9DAE3F07-9452-4D96-BD57-8C184A12D691} = {688E9979-0FC4-4FCE-A38D-ABD4872ACA46}
 	EndGlobalSection
 EndGlobal
