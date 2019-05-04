@@ -1,10 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
     <PropertyGroup>
         <TargetFrameworks>net471;netcoreapp3.0</TargetFrameworks>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <LangVersion>latest</LangVersion>
-        <PackageVersion>1.0.0-preview2</PackageVersion>
+        <PackageVersion>1.0.0-preview3</PackageVersion>
         <Title>WPF Foundations</Title>
         <Description>Foundational classes and helpers for my WPF based projects.</Description>
         <RepositoryUrl>https://github.com/marcelltoth/DDDBuildingBlocks</RepositoryUrl>
@@ -23,10 +23,6 @@
 
     <ItemGroup Condition="'$(TargetFramework)' == 'net471'">
         <Reference Include="PresentationFramework" />
-    </ItemGroup>
-    
-    <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'"> 
-        <PackageReference Include="Microsoft.WindowsDesktop.App" Version="3.0.0-*" />
     </ItemGroup>
 
 </Project>

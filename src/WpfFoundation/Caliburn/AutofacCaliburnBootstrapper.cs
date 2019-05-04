@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using Autofac;
 using Caliburn.Micro;
@@ -43,7 +45,12 @@ namespace MarcellToth.WpfFoundation.Caliburn
         {
             Type viewModelType = typeof(TStartupViewModel);
             Assembly viewModelAssembly = viewModelType.Assembly;
-            string applicationNamespace = viewModelType.Namespace;
+            
+            Debug.Assert(viewModelType.Namespace != null, "viewModelType.Namespace != null");
+            
+            // The application namespace is the namespace of TStartupViewModel except the .ViewModels postfix.
+            var namespaceParts = viewModelType.Namespace.Split('.');
+            string applicationNamespace = string.Join(".", namespaceParts.Take(namespaceParts.Length-1));
             
             containerBuilder.RegisterAssemblyTypes(viewModelAssembly)
                 .Where(t => t.Namespace != null && t.Namespace.StartsWith($"{applicationNamespace}.ViewModels"))
