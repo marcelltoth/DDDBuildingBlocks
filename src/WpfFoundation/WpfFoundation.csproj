@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFrameworks>net471;netcoreapp3.0</TargetFrameworks>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <LangVersion>latest</LangVersion>
-        <PackageVersion>1.0.0</PackageVersion>
+        <PackageVersion>1.0.0-preview2</PackageVersion>
         <Title>WPF Foundations</Title>
         <Description>Foundational classes and helpers for my WPF based projects.</Description>
         <RepositoryUrl>https://github.com/marcelltoth/DDDBuildingBlocks</RepositoryUrl>
@@ -13,6 +13,20 @@
         <AssemblyName>MarcellToth.WpfFoundation</AssemblyName>
         <RootNamespace>MarcellToth.WpfFoundation</RootNamespace>
         <PackageId>MarcellToth.WpfFoundation</PackageId>
+        <UseWPF>true</UseWPF>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac" Version="4.9.2" />
+      <PackageReference Include="Caliburn.Micro" Version="3.2.0" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'net471'">
+        <Reference Include="PresentationFramework" />
+    </ItemGroup>
+    
+    <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'"> 
+        <PackageReference Include="Microsoft.WindowsDesktop.App" Version="3.0.0-*" />
+    </ItemGroup>
 
 </Project>
