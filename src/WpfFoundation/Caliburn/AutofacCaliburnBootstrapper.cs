@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using Autofac;
 using Caliburn.Micro;
+using Microsoft.Extensions.Configuration;
 
 namespace MarcellToth.WpfFoundation.Caliburn
 {
@@ -14,21 +16,32 @@ namespace MarcellToth.WpfFoundation.Caliburn
     public abstract class AutofacCaliburnBootstrapper<TStartupViewModel> : BootstrapperBase
     {
         private IContainer _autofacContainer;
+        
+        /// <summary>
+        ///     Configuration data loaded from appsettings.json (if available) and environment variables.
+        /// </summary>
+        public IConfiguration Configuration { get; }
 
         /// <summary>
         ///     Initializes the Caliburn Micro framework.
         /// </summary>
         protected AutofacCaliburnBootstrapper(bool useApplication = true) : base(useApplication)
         {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", true, true)
+                .AddEnvironmentVariables();
+
+            Configuration = builder.Build();
+            
             Initialize();
         }
 
         /// <inheritdoc />
-        protected override void Configure()
+        protected sealed override void Configure()
         {
             var containerBuilder = new ContainerBuilder();
 
-            
             ConfigureContainer(containerBuilder);
             
             _autofacContainer = containerBuilder.Build();
@@ -73,7 +86,7 @@ namespace MarcellToth.WpfFoundation.Caliburn
 
 
         /// <inheritdoc />
-        protected override object GetInstance(Type service, string key)
+        protected sealed override object GetInstance(Type service, string key)
         {
             if (string.IsNullOrEmpty(key))
                 return _autofacContainer.Resolve(service);
@@ -81,7 +94,7 @@ namespace MarcellToth.WpfFoundation.Caliburn
         }
 
         /// <inheritdoc />
-        protected override IEnumerable<object> GetAllInstances(Type service)
+        protected sealed override IEnumerable<object> GetAllInstances(Type service)
         {
             yield return _autofacContainer.Resolve(service);
         }
