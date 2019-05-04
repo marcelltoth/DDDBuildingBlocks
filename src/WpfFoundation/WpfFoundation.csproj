@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <LangVersion>latest</LangVersion>
+        <PackageVersion>1.0.0</PackageVersion>
+        <Title>WPF Foundations</Title>
+        <Description>Foundational classes and helpers for my WPF based projects.</Description>
+        <RepositoryUrl>https://github.com/marcelltoth/DDDBuildingBlocks</RepositoryUrl>
+        <Authors>marcelltoth</Authors>
+        <PackageTags>DDD</PackageTags>
+        <AssemblyName>MarcellToth.WpfFoundation</AssemblyName>
+        <RootNamespace>MarcellToth.WpfFoundation</RootNamespace>
+        <PackageId>MarcellToth.WpfFoundation</PackageId>
+    </PropertyGroup>
+
+</Project>
