@@ -4,7 +4,7 @@
         <TargetFrameworks>net471;netcoreapp3.0</TargetFrameworks>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <LangVersion>latest</LangVersion>
-        <PackageVersion>1.1.0-preview</PackageVersion>
+        <PackageVersion>1.2.0-preview</PackageVersion>
         <Title>WPF Foundations</Title>
         <Description>Foundational classes and helpers for my WPF based projects.</Description>
         <RepositoryUrl>https://github.com/marcelltoth/DDDBuildingBlocks</RepositoryUrl>
