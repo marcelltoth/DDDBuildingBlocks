@@ -8,7 +8,6 @@ namespace MarcellToth.DDDBuildingBlocks.Domain
     /// <summary>
     ///     Abstract base class for a Value Objects. Implements equality.
     /// </summary>
-    /// <typeparam name="TValueObject">The type of the derived value object.</typeparam>
     public abstract class ValueObject : IValueObject
     {
 
@@ -27,8 +26,9 @@ namespace MarcellToth.DDDBuildingBlocks.Domain
                     .GetProperties(BindingFlags.Public | BindingFlags.Instance)
                     .Select(p => p.GetValue(this));
         }
-        
-    
+
+
+        /// <inheritdoc />
         public override bool Equals(object other)
         {
             if (ReferenceEquals(other, null))
@@ -43,6 +43,7 @@ namespace MarcellToth.DDDBuildingBlocks.Domain
             return GetPropertyValues().SequenceEqual(((ValueObject) other).GetPropertyValues());
         }
 
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             int hashCode = 31;

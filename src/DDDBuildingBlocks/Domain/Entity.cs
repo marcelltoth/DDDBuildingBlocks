@@ -4,13 +4,24 @@ using MarcellToth.DDDBuildingBlocks.Domain.Abstractions;
 
 namespace MarcellToth.DDDBuildingBlocks.Domain
 {
+    /// <summary>
+    ///     Convenience base class for implementing <see cref="IEntity{TId}"/>. Implements ID handling and equality.
+    /// </summary>
+    /// <typeparam name="TId">The type used for the <see cref="Id"/>of the Entity</typeparam>
     public class Entity<TId> : IEntity<TId>
     {
+        /// <summary>
+        ///     Instantiates an already-established entity with a given id.
+        /// </summary>
+        /// <param name="id">The ID to set on the entity.</param>
         public Entity(TId id)
         {
             Id = id;
         }
 
+        /// <summary>
+        ///     Instantiates an entity in the Transient state.
+        /// </summary>
         public Entity()
         {
         }
@@ -20,7 +31,7 @@ namespace MarcellToth.DDDBuildingBlocks.Domain
         /// </summary>
         /// <remarks>
         ///     There is a special "Transient" state, if <code>Id == default</code>. This might be the case when using
-        ///     EF generated key sbefore saving the entity to the database.
+        ///     EF generated key before saving the entity to the database.
         /// </remarks>
         /// <seealso cref="IsTransient"/>
         public virtual TId Id { get; private set; }
@@ -82,17 +93,24 @@ namespace MarcellToth.DDDBuildingBlocks.Domain
         /// </remarks>
         public override int GetHashCode()
         {
-            if (IsTransient) 
+            if (IsTransient)
                 return base.GetHashCode();
             
             return EqualityComparer<TId>.Default.GetHashCode(Id);
         }
 
+        
+        /// <summary>
+        ///     Calls <code>Equals(left, right)</code>.
+        /// </summary>
         public static bool operator ==(Entity<TId> left, Entity<TId> right)
         {
             return Equals(left, right);
         }
 
+        /// <summary>
+        ///     Calls <code>!Equals(left, right)</code>.
+        /// </summary>
         public static bool operator !=(Entity<TId> left, Entity<TId> right)
         {
             return !Equals(left, right);

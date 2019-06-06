@@ -25,7 +25,7 @@ namespace MarcellToth.DDDBuildingBlocks.Persistence.Abstractions
         /// <summary>
         ///     Adds a new <typeparamref name="TEntity"/> aggregate to the <see cref="IRepository{TEntity}.UnitOfWork"/> in its current form. Further changes are not tracked.
         /// </summary>
-        /// <param name="entity">The <typeparamref cref="TEntity"/> instance to add.</param>
+        /// <param name="entity">The <typeparamref name="TEntity"/> instance to add.</param>
         Task AddAsync(TEntity entity);
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace MarcellToth.DDDBuildingBlocks.Persistence.Abstractions
         Task UpdateAsync(TEntity entity);
 
         /// <summary>
-        ///     Deletes a <typeparamref cref="TEntity"/> aggregate and its dependents from the storage.
+        ///     Deletes a <typeparamref name="TEntity"/> aggregate and its dependents from the storage.
         /// </summary>
         /// <param name="entityId">The ID of the entity to remove.</param>
         Task DeleteAsync(int entityId);

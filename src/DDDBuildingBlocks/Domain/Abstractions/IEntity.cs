@@ -5,7 +5,7 @@ namespace MarcellToth.DDDBuildingBlocks.Domain.Abstractions
     /// <summary>
     ///     An entity as defined by Domain Driven Design.
     /// </summary>
-    /// <typeparam name="T">The type used for the <see cref="Id"/>of the Entity</typeparam>
+    /// <typeparam name="TId">The type used for the <see cref="Id"/>of the Entity</typeparam>
     public interface IEntity<TId> : IEquatable<IEntity<TId>>
     {
         /// <summary>
