@@ -23,7 +23,7 @@ namespace MarcellToth.DDDBuildingBlocks.Domain
         ///     EF generated key sbefore saving the entity to the database.
         /// </remarks>
         /// <seealso cref="IsTransient"/>
-        public TId Id { get; private set; }
+        public virtual TId Id { get; private set; }
 
         /// <summary>
         ///     True if the entity does not have a stable identity yet.
