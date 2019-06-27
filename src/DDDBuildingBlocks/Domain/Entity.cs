@@ -50,7 +50,7 @@ namespace MarcellToth.DDDBuildingBlocks.Domain
         /// <param name="newId">The ID to be set on this entity.</param>
         /// <exception cref="System.ArgumentException">Thrown if the value of <paramref name="newId"/> represents the transient state.</exception>
         /// <exception cref="System.InvalidOperationException">Thrown when attempting to change the identity of a non-transient entity.</exception>
-        public void SetId(TId newId)
+        public virtual void SetId(TId newId)
         {
             if(Equals(newId, default(TId)))
                 throw new ArgumentException("Cannot set an entity's identity to the transient state.", nameof(newId));
@@ -66,7 +66,7 @@ namespace MarcellToth.DDDBuildingBlocks.Domain
         ///     If at least one of the operands are Transient, they are considered different (except in case of reference equality).
         /// </summary>
         /// <param name="other">The entity to compare with.</param>
-        public bool Equals(IEntity<TId> other)
+        public virtual bool Equals(IEntity<TId> other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
