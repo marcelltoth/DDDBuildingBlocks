@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>8</LangVersion>
+        <Nullable>enable</Nullable>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+        <RootNamespace>MarcellToth.CountryDatabase</RootNamespace>
+        <AssemblyName>MarcellToth.CountryDatabase</AssemblyName>
+        
+        <PackageVersion>1.0.2</PackageVersion>
+        <Title>Country Database</Title>
+        <Description>
+Database of known countries of the world.
+
+Contains English description, Alpha-2 and Alpha-3 codes.
+        </Description>
+        <RepositoryUrl>https://github.com/marcelltoth/MarcellToth.Foundation</RepositoryUrl>
+        <Authors>marcelltoth</Authors>
+        <PackageTags>Country</PackageTags>
+        <PackageId>MarcellToth.CountryDatabase</PackageId>
+        
+    </PropertyGroup>
+
+</Project>
