@@ -37,6 +37,6 @@ namespace MarcellToth.DDDBuildingBlocks.Persistence.Abstractions
         ///     Deletes a <typeparamref name="TEntity"/> aggregate and its dependents from the storage.
         /// </summary>
         /// <param name="entityId">The ID of the entity to remove.</param>
-        Task DeleteAsync(int entityId);
+        Task DeleteAsync(TEntityId entityId);
     }
 }
